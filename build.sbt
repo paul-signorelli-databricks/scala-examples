@@ -4,5 +4,5 @@ ThisBuild / scalaVersion := "2.12.17"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala_udf"
+    name := "scala-examples"
   )

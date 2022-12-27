@@ -30,6 +30,10 @@ object Main
     )
   }
 
+  def get_property(key: String): String = {
+    System.getenv().get(key)
+  }
+
   def main(args: Array[String]): Unit = {
 
     @tailrec
@@ -47,16 +51,23 @@ object Main
       }
     }
 
+    /*
     print_system_properties()
     println()
     print_env_properties()
     println()
+     */
+
+    val run_mask_evn_var = get_property("RUN_MASK")
 
     val options = nextArg(Map(), args.toList)
     println(options)
 
     val runId = options.getOrElse("runId", 0).asInstanceOf[Int]
-    val runMask = options.getOrElse("runMask", 0).asInstanceOf[Int]
+    var runMask = options.getOrElse("runMask", 0).asInstanceOf[Int]
+    if ((run_mask_evn_var != null) && (run_mask_evn_var.toInt > 0)){
+      runMask = run_mask_evn_var.toInt
+    }
 
     if ((runId & runMask) == 0) {
       println("runId & runMask is " + (runId & runMask) + ", exiting!!")

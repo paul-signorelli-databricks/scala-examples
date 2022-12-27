@@ -1,0 +1,29 @@
+{
+  "num_workers": 8,
+  "cluster_name": "pds29-cache-test",
+  "spark_version": "11.3.x-scala2.12",
+  "spark_conf": {},
+  "aws_attributes": {
+    "first_on_demand": 1,
+    "availability": "SPOT_WITH_FALLBACK",
+    "zone_id": "auto",
+    "spot_bid_price_percent": 100,
+    "ebs_volume_count": 0
+  },
+  "node_type_id": "i3.xlarge",
+  "driver_node_type_id": "i3.xlarge",
+  "ssh_public_keys": [],
+  "custom_tags": {},
+  "spark_env_vars": {
+    "RUN_MASK": "3",
+    "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+  },
+  "autotermination_minutes": 30,
+  "enable_elastic_disk": false,
+  "cluster_source": "UI",
+  "init_scripts": [],
+  "single_user_name": "paul.signorelli@databricks.com",
+  "data_security_mode": "SINGLE_USER",
+  "runtime_engine": "PHOTON",
+  "cluster_id": "1221-115404-kms64xvg"
+}

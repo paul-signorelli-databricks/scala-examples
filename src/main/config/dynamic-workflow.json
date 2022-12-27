@@ -1,0 +1,76 @@
+{
+  "job_id": 290115426842426,
+  "creator_user_name": "paul.signorelli@databricks.com",
+  "run_as_user_name": "paul.signorelli@databricks.com",
+  "run_as_owner": true,
+  "settings": {
+    "name": "dynamic-workflow",
+    "email_notifications": {
+      "no_alert_for_skipped_runs": false
+    },
+    "webhook_notifications": {},
+    "timeout_seconds": 0,
+    "max_concurrent_runs": 1,
+    "tasks": [
+      {
+        "task_key": "area-of-rectangle-40by20",
+        "spark_jar_task": {
+          "jar_uri": "",
+          "main_class_name": "com.pds29.Main",
+          "parameters": [
+            "--length",
+            "40",
+            "--height",
+            "20",
+            "--runId",
+            "1",
+            "--runMask",
+            "2"
+          ],
+          "run_as_repl": true
+        },
+        "existing_cluster_id": "1221-115404-kms64xvg",
+        "libraries": [
+          {
+            "jar": "dbfs:/FileStore/paul.signorelli/scala-example/scala_examples_2_12_0_3_0_SNAPSHOT.jar"
+          }
+        ],
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      },
+      {
+        "task_key": "area-if-rectangle-80by40",
+        "depends_on": [
+          {
+            "task_key": "area-of-rectangle-40by20"
+          }
+        ],
+        "spark_jar_task": {
+          "jar_uri": "",
+          "main_class_name": "com.pds29.Main",
+          "parameters": [
+            "--length",
+            "80",
+            "--height",
+            "40",
+            "--runId",
+            "2",
+            "--runMask",
+            "2"
+          ],
+          "run_as_repl": true
+        },
+        "existing_cluster_id": "1221-115404-kms64xvg",
+        "libraries": [
+          {
+            "jar": "dbfs:/FileStore/paul.signorelli/scala-example/scala_examples_2_12_0_3_0_SNAPSHOT.jar"
+          }
+        ],
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      }
+    ],
+    "format": "MULTI_TASK"
+  },
+  "created_time": 1671460443365
+}
